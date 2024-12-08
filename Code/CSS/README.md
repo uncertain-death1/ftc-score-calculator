@@ -1,1 +1,1 @@
-# This directory contains all css files
+# This directory contains all CSS files
