@@ -1,0 +1,50 @@
+/* ========================================================
+   Author: John Boynton
+   Project: FTC "Into the Deep" Score Calculator
+   Date Created: 2024-12-07
+   Description: Styles for the FTC "Into the Deep" Score Calculator.
+   Version: 1.0
+   Notes:
+     - This project calculates the scores based on input data.
+     - Designed for teams participating in the 2024 FTC season.
+   ======================================================== */
+
+body {
+    background-color: lightgrey;
+}
+
+/* Centering all buttons */
+button {
+    display: block;           /* Makes each button a block-level element */
+    margin: 10px auto;        /* Centers the button horizontally with margin on top and bottom */
+    text-align: center;       /* Ensures the text inside the button is centered */
+}
+/*color of everything under calculator div finds every div and returns all children that are p*/
+p, h2, h3 {
+    text-align: center;
+    color: black; /* Fill color of the text */
+    -webkit-text-stroke: 0.5px red; /* Reduced stroke width and color */
+}
+
+/*Header*/
+.Header {
+    border-style: ridge;
+    border: solid 0.5px;
+    border-color: red;
+    background-color: white;
+}
+
+/* auto period section*/
+.AutoPrd {
+    border-style: inset;
+    border: solid 0.5px;
+    border-color: red;
+    background-color: white;
+}
+
+/*header text*/
+#header {
+    text-align: center;
+    color: black; /* Fill color of the text */
+    -webkit-text-stroke: 0.5px red; /* Reduced stroke width and color */
+}

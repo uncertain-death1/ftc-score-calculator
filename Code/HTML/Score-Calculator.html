@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Style.css">
+    <title>FTC "Into the Deep" Score Calculator</title>
+</head>
+<body>
+    <div class="Header">
+        <h1 id="header">First Tech Challenge "Into The Deep" Score Calculator</h1>
+        <h4 id="header">Made by team: 24342 Talon Techs</h4>
+    </div>
+    <div class="Calculator">
+        <h2>Calculator</h2>
+        <div class="AutoPrd">
+            <h3>Autonomous Period</h3>
+
+            <!-- Net Zone -->
+            <p>Samples in Net Zone (2 pts each): </p>
+            <button id="NetSub" onclick="updateScore('autoSamplesInNet', -1)"><b>-</b></button>
+            <p id="NetLabel">0</p>
+            <button id="NetAdd" onclick="updateScore('autoSamplesInNet', 1)"><b>+</b></button>
+
+            <!-- Low Basket -->
+            <p>Samples in Low Basket (4 pts each):</p>
+            <button id="LowBasketSub" onclick="updateScore('autoLowBasket', -1)"><b>-</b></button>
+            <p id="LowBasketLabel">0</p>
+            <button id="LowBasketAdd" onclick="updateScore('autoLowBasket', 1)"><b>+</b></button>
+
+            <!-- High Basket -->
+            <p>Samples in High Basket (8 pts each):</p>
+            <button id="HighBasketSub" onclick="updateScore('autoHighBasket', -1)"><b>-</b></button>
+            <p id="HighBasketLabel">0</p>
+            <button id="HighBasketAdd" onclick="updateScore('autoHighBasket', 1)"><b>+</b></button>
+
+            <!-- Low Chamber -->
+            <p>Specimens on Low Chamber (6 pts each):</p>
+            <button id="LowChamberSub" onclick="updateScore('autoLowChamber', -1)"><b>-</b></button>
+            <p id="LowChamberLabel">0</p>
+            <button id="LowChamberAdd" onclick="updateScore('autoLowChamber', 1)"><b>+</b></button>
+
+            <!-- High Chamber -->
+            <p>Specimens on High Chamber (10 pts each):</p>
+            <button id="HighChamberSub" onclick="updateScore('autoHighChamber', -1)"><b>-</b></button>
+            <p id="HighChamberLabel">0</p>
+            <button id="HighChamberAdd" onclick="updateScore('autoHighChamber', 1)"><b>+</b></button>
+            <!-- Parking -->
+            <p>Parking (3 pts each):</p>
+            <button id="AutoParkingNone" onclick="setParking('None')">None</button>
+            <button id="AutoParkingOBS" onclick="setParking('ObservationZone')">Observation Zone</button>
+            <button id="AutoParkingLevel1Ascent" onclick="setParking('Level1Ascent')">Level 1 Ascent (touching middle bar from bottom)</button>
+            <!-- Total Score -->
+        </div>
+        <div class="Scores">
+            <h3>Total Score: <span id="totalScore">0</span></h3>
+        </div>
+    </div>
+
+
+    <script src="../JS/main.js"></script>
+</body>
+</html>
