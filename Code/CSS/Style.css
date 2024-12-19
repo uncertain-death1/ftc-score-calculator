@@ -7,10 +7,12 @@
    Notes:
      - This project calculates the scores based on input data.
      - Designed for teams participating in the 2024 FTC season.
-   ======================================================== */
+======================================================== */
 
 body {
     background-color: lightgrey;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* Centering all buttons */
@@ -19,32 +21,57 @@ button {
     margin: 10px auto;        /* Centers the button horizontally with margin on top and bottom */
     text-align: center;       /* Ensures the text inside the button is centered */
 }
-/*color of everything under calculator div finds every div and returns all children that are p*/
+
+/* Color and alignment for headers and paragraphs */
 p, h2, h3 {
     text-align: center;
-    color: black; /* Fill color of the text */
+    color: black;             /* Fill color of the text */
     -webkit-text-stroke: 0.5px red; /* Reduced stroke width and color */
 }
 
-/*Header*/
+/* Header */
 .Header {
     border-style: ridge;
     border: solid 0.5px;
     border-color: red;
     background-color: white;
+    padding: 10px;
 }
 
-/* auto period section*/
+/* Parent container for AutoPrd and TelePrd */
+.Calculator {
+    display: flex;
+    justify-content: space-between; /* Positions items on the left and right */
+    margin: 20px; /* Adds spacing around the container */
+}
+
+/* auto period section */
 .AutoPrd {
+    flex: 1; /* Ensures it takes up equal space */
+    text-align: left;
     border-style: inset;
     border: solid 0.5px;
     border-color: red;
     background-color: white;
+    padding: 10px; /* Adds inner spacing */
+    margin-right: 10px; /* Adds spacing between AutoPrd and TelePrd */
 }
 
-/*header text*/
+/* teleop period section */
+.TelePrd {
+    flex: 1; /* Ensures it takes up equal space */
+    text-align: right;
+    border-style: inset;
+    border: solid 0.5px;
+    border-color: red;
+    background-color: white;
+    padding: 10px; /* Adds inner spacing */
+    margin-left: 10px; /* Adds spacing between AutoPrd and TelePrd */
+}
+
+/* Header text */
 #header {
     text-align: center;
-    color: black; /* Fill color of the text */
+    color: black;             /* Fill color of the text */
     -webkit-text-stroke: 0.5px red; /* Reduced stroke width and color */
 }

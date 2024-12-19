@@ -27,8 +27,8 @@ Notes:
         <h1 id="header">First Tech Challenge "Into The Deep" Score Calculator</h1>
         <h4 id="header">Made by team: 24342 Talon Techs</h4>
     </div>
+    <h2 style="text-align: center ;">Calculator</h2>
     <div class="Calculator">
-        <h2>Calculator</h2>
         <div class="AutoPrd">
             <h3>Autonomous Period</h3>
 
@@ -66,8 +66,40 @@ Notes:
             <button id="AutoParkingNone" onclick="setParking('None')">None</button>
             <button id="AutoParkingOBS" onclick="setParking('ObservationZone')">Observation Zone</button>
             <button id="AutoParkingLevel1Ascent" onclick="setParking('Level1Ascent')">Level 1 Ascent (touching middle bar from bottom)</button>
-            <!-- Total Score -->
+    
         </div>
+    <div class="TelePrd">
+        <h3>Teleop Period</h3>
+        <!-- Net Zone -->
+        <p>Samples in Net Zone (2 pts each): </p>
+        <button id="NetSub" onclick="updateScore('teleSamplesInNet', -1)"><b>-</b></button>
+        <p id="teleNetLabel">0</p>
+        <button id="NetAdd" onclick="updateScore('teleSamplesInNet', 1)"><b>+</b></button>
+
+        <!-- Low Basket -->
+        <p>Samples in Low Basket (4 pts each):</p>
+        <button id="LowBasketSub" onclick="updateScore('teleLowBasket', -1)"><b>-</b></button>
+        <p id="teleLowBasketLabel">0</p>
+        <button id="LowBasketAdd" onclick="updateScore('teleLowBasket', 1)"><b>+</b></button>
+
+        <!-- High Basket -->
+        <p>Samples in High Basket (8 pts each):</p>
+        <button id="HighBasketSub" onclick="updateScore('teleHighBasket', -1)"><b>-</b></button>
+        <p id="teleHighBasketLabel">0</p>
+        <button id="HighBasketAdd" onclick="updateScore('teleHighBasket', 1)"><b>+</b></button>
+
+        <!-- Low Chamber -->
+        <p>Specimens on Low Chamber (6 pts each):</p>
+        <button id="LowChamberSub" onclick="updateScore('teleLowChamber', -1)"><b>-</b></button>
+        <p id="teleLowChamberLabel">0</p>
+        <button id="LowChamberAdd" onclick="updateScore('teleLowChamber', 1)"><b>+</b></button>
+
+        <!-- High Chamber -->
+        <p>Specimens on High Chamber (10 pts each):</p>
+        <button id="HighChamberSub" onclick="updateScore('teleHighChamber', -1)"><b>-</b></button>
+        <p id="teleHighChamberLabel">0</p>
+        <button id="HighChamberAdd" onclick="updateScore('teleHighChamber', 1)"><b>+</b></button>
+    </div>
         <div class="Scores">
             <h3>Total Score: <span id="totalScore">0</span></h3>
         </div>
