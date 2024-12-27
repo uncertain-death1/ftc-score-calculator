@@ -62,7 +62,7 @@ Notes:
             <p id="HighChamberLabel">0</p>
             <button id="HighChamberAdd" onclick="updateScore('autoHighChamber', 1)"><b>+</b></button>
             <!-- Parking -->
-            <p>Parking (3 pts each):</p>
+            <p>Parking:</p>
             <button id="AutoParkingNone" onclick="setParking('None')">None</button>
             <button id="AutoParkingOBS" onclick="setParking('ObservationZone')">Observation Zone</button>
             <button id="AutoParkingLevel1Ascent" onclick="setParking('Level1Ascent')">Level 1 Ascent (touching middle bar from bottom)</button>
@@ -99,6 +99,15 @@ Notes:
         <button id="HighChamberSub" onclick="updateScore('teleHighChamber', -1)"><b>-</b></button>
         <p id="teleHighChamberLabel">0</p>
         <button id="HighChamberAdd" onclick="updateScore('teleHighChamber', 1)"><b>+</b></button>
+
+        <!-- Teleop Ascent -->
+        <p>Teleop Ascent:</p>
+        <button id="teleAscentNone" onclick="setAscent('None')">None</button>
+        <button id="teleAscentLevel1" onclick="setAscent('Level 1')">Level 1</button>
+        <button id="teleAscentLevel2" onclick="setAscent('Level 2')">Level 2</button>
+        <button id="teleAscentLevel3" onclick="setAscent('Level 3')">Level 3</button>
+
+
     </div>
         <div class="Scores">
             <h3>Total Score: <span id="totalScore">0</span></h3>
