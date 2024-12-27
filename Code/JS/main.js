@@ -9,13 +9,20 @@ Notes:
     - This project calculates the scores based on input data.
     - Designed for teams participating in the 2024 FTC season.
 ========================================================*/
+/*
+3 in net auto
+3 in net for tele
+3+3 = 6 
+6*2 = 12
 
+*/
 const NET_POINTS = 2;
 const LOW_BASKET_POINTS = 4;
 const HIGH_BASKET_POINTS = 8;
 const LOW_CHAMBER_POINTS = 6;
 const HIGH_CHAMBER_POINTS = 10;
 const PARKING_OBSERVATION_ZONE = 3;
+const PARKING_NONE = 0;
 const LEVEL_1_ASCENT = 3;
 const LEVEL_2_ASCENT = 15;
 const LEVEL_3_ASCENT = 30;
@@ -34,18 +41,12 @@ var teleHighChamber = 0;   // Teleop High Chamber (10 points each)
 var teleAscent = 0; // Teleop Ascent Points
 
 function updateTotalScore() {
-    const totalScore = (autoSamplesInNet * NET_POINTS) +
-                        (autoLowBasket * LOW_BASKET_POINTS) +
-                        (autoHighBasket * HIGH_BASKET_POINTS) +
-                        (autoLowChamber * LOW_CHAMBER_POINTS) +
-                        (autoHighChamber * HIGH_CHAMBER_POINTS) +
-                        autoParking + 
-                        (teleSamplesInNet * NET_POINTS) + 
-                        (teleLowBasket * LOW_BASKET_POINTS) + 
-                        (teleHighBasket * HIGH_BASKET_POINTS) + 
-                        (teleLowChamber * LOW_CHAMBER_POINTS) +
-                        (teleHighChamber * HIGH_CHAMBER_POINTS) + 
-                        teleAscent;
+    let totalScore = (autoSamplesInNet + teleSamplesInNet) * NET_POINTS +
+                        (autoLowBasket + teleLowBasket) * LOW_BASKET_POINTS +
+                        (autoHighBasket + teleHighBasket) * HIGH_BASKET_POINTS +
+                        (autoLowChamber + teleLowChamber) * LOW_CHAMBER_POINTS +
+                        (autoHighChamber + teleHighChamber) * HIGH_CHAMBER_POINTS +
+                        (autoParking + teleAscent)
                           
 
     // Display the total score on the page
@@ -80,7 +81,7 @@ function updateScore(scoreType, increment) {
     // teleop
     else if (scoreType === 'teleSamplesInNet') {
         teleSamplesInNet += increment;
-        if (teleSamplesInNet < 0) teleSamplesInNet;
+        if (teleSamplesInNet < 0) teleSamplesInNet = 0;
         document.getElementById("teleNetLabel").innerText = teleSamplesInNet
     } else if (scoreType === 'teleLowBasket') {
         teleLowBasket += increment;
@@ -98,38 +99,69 @@ function updateScore(scoreType, increment) {
         teleHighChamber += increment;
         if (teleHighChamber < 0) teleHighChamber = 0;
         document.getElementById("teleHighChamberLabel").innerText = teleHighChamber
-    }
+    } 
 
     // Update the total score whenever a value changes
     updateTotalScore();
 }
-
+x``
 function setParking(parkingType) {
     if (parkingType === 'None') {
         autoParking = PARKING_NONE;
+        document.getElementById("AutoParkingNone").style.backgroundColor = 'red';
+    document.getElementById("AutoParkingOBS").style.backgroundColor = '';
+    document.getElementById("AutoParkingLevel1Ascent").style.backgroundColor = '';
     } else if (parkingType === 'ObservationZone') {
         autoParking = PARKING_OBSERVATION_ZONE;
+        document.getElementById("AutoParkingNone").style.backgroundColor = '';
+    document.getElementById("AutoParkingOBS").style.backgroundColor = 'red';
+    document.getElementById("AutoParkingLevel1Ascent").style.backgroundColor = '';
     } else if (parkingType === 'Level1Ascent') {
         autoParking = LEVEL_1_ASCENT;
+        document.getElementById("AutoParkingNone").style.backgroundColor = '';
+    document.getElementById("AutoParkingOBS").style.backgroundColor = '';
+    document.getElementById("AutoParkingLevel1Ascent").style.backgroundColor = 'red'
     }
     updateTotalScore()
     // Update parking display and total score
     document.getElementById("AutoParkingNone").style.backgroundColor = (parkingType === 'None') ? 'red' : '';
     document.getElementById("AutoParkingOBS").style.backgroundColor = (parkingType === 'ObservationZone') ? 'red' : '';
     document.getElementById("AutoParkingLevel1Ascent").style.backgroundColor = (parkingType === 'Level1Ascent') ? 'red' : '';
-function setAscent(ascentType) {
+}
+function setAscent (ascentType) {
     if (ascentType === 'None') {
         teleAscent = 0;
+        document.getElementById("teleAscentNone").style.backgroundColor = 'red';
+        document.getElementById("teleAscentLevel1").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel2").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel3").style.backgroundColor = '';
     } else if (ascentType === 'Level 1') {
         teleAscent = LEVEL_1_ASCENT;
+        document.getElementById("teleAscentLevel1").style.backgroundColor = 'red';
+        document.getElementById("teleAscentNone").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel2").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel3").style.backgroundColor = '';
+
+    
     } else if (ascentType === 'Level 2') {
         teleAscent = LEVEL_2_ASCENT;
+        document.getElementById("teleAscentLevel2").style.backgroundColor = 'red';
+        document.getElementById("teleAscentNone").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel1").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel3").style.backgroundColor = '';
+
+
+    
     } else if (ascentType === 'Level 3') {
         teleAscent = LEVEL_3_ASCENT
+        document.getElementById("teleAscentLevel3").style.backgroundColor = 'red';
+        document.getElementById("teleAscentNone").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel1").style.backgroundColor = '';
+        document.getElementById("teleAscentLevel2").style.backgroundColor = '';
     }
-    // add this for when ascent buttons are added same as above for setParking()
     updateTotalScore();
+
+    
 }
 
 
-}
