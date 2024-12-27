@@ -1,1 +1,1 @@
-# This directory contains all HTML files
+# This directory contains all the code
