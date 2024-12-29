@@ -9,13 +9,7 @@ Notes:
     - This project calculates the scores based on input data.
     - Designed for teams participating in the 2024 FTC season.
 ========================================================*/
-/*
-3 in net auto
-3 in net for tele
-3+3 = 6 
-6*2 = 12
 
-*/
 const NET_POINTS = 2;
 const LOW_BASKET_POINTS = 4;
 const HIGH_BASKET_POINTS = 8;
