@@ -36,10 +36,10 @@ var teleAscent = 0; // Teleop Ascent Points
 
 function updateTotalScore() {
     let totalScore = (autoSamplesInNet + teleSamplesInNet) * NET_POINTS +
-                        (autoLowBasket + teleLowBasket) * LOW_BASKET_POINTS +
-                        (autoHighBasket + teleHighBasket) * HIGH_BASKET_POINTS +
-                        (autoLowChamber + teleLowChamber) * LOW_CHAMBER_POINTS +
-                        (autoHighChamber + teleHighChamber) * HIGH_CHAMBER_POINTS +
+                        (autoLowBasket * 2) + teleLowBasket) * LOW_BASKET_POINTS +
+                        (autoHighBasket * 2) + teleHighBasket) * HIGH_BASKET_POINTS +
+                        (autoLowChamber * 2) + teleLowChamber) * LOW_CHAMBER_POINTS +
+                        (autoHighChamber * 2) + teleHighChamber) * HIGH_CHAMBER_POINTS +
                         (autoParking + teleAscent)
                           
 
